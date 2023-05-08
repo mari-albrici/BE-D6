@@ -1,12 +1,17 @@
 package exceptions;
 
-public class bancaException extends Exception{
+public class BancaException extends Exception{
 	
-	private String message = "No funds available!";
+	private String message;
 	
 	public BancaException(String message) {
 		super(message);
-		toString();
+		this.message = message;
+	}
+	
+	@Override 
+	public String toString() {
+		return this.message;
 	}
 
 }

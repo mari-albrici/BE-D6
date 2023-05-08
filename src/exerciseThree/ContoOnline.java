@@ -1,10 +1,11 @@
 package exerciseThree;
 
+import exceptions.BancaException;
+
 public class ContoOnline extends ContoCorrente {
 
 	double maxPrelievo;
-
-	ContoOnLine(String titolare, double saldo, double maxP) {
+	ContoOnline(String titolare, double saldo, double maxP) {
 		super(titolare, saldo);
 		this.maxPrelievo = maxP;
 	}
@@ -15,9 +16,11 @@ public class ContoOnline extends ContoCorrente {
 				+ " - Massimo movimenti: " + maxMovimenti + " - Massimo prelievo possibile: " + maxPrelievo);
 	}
 
-	void preleva(double x) {
+	void preleva(double x) throws BancaException {
 		if (x <= maxPrelievo) {
 			super.preleva(x);
+		} else if(x > maxPrelievo) {
+			throw new BancaException("No funds available");
 		}
 	}
 }

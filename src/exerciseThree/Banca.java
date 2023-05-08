@@ -10,16 +10,17 @@ public class Banca {
 		System.out.println("Saldo conto: " + conto1.restituisciSaldo());
 
 		try {
+			
 			conto1.preleva(1750.5);
-
 			System.out.println("Saldo conto: " + conto1.restituisciSaldo());
+			
 		} catch (BancaException e) {
-			throw new BancaException;
+			
 			System.out.println("Errore durante il prelievo: " + e);
 			e.printStackTrace();
 		}
 
-		ContoOnLine conto2 = new ContoOnLine("Rossi Luigi", 50350.0, 1500);
+		ContoOnline conto2 = new ContoOnline("Rossi Luigi", 50350.0, 1500.0);
 
 		conto2.stampaSaldo();
 
