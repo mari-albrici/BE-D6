@@ -1,15 +1,16 @@
 package exceptions;
 
-public class BancaException extends Exception{
-	
+@SuppressWarnings("serial")
+public class BancaException extends Exception {
+
 	private String message;
-	
+
 	public BancaException(String message) {
 		super(message);
 		this.message = message;
 	}
-	
-	@Override 
+
+	@Override
 	public String toString() {
 		return this.message;
 	}

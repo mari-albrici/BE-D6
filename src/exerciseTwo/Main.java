@@ -40,7 +40,7 @@ public class Main {
 
 		} catch (ArithmeticException e) {
 
-			System.out.println("SOMETHING HAPPENED HERE: " + e.getMessage());
+			logger.warn("SOMETHING HAPPENED HERE: " + e.getMessage());
 
 		}
 
