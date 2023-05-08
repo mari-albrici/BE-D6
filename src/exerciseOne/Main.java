@@ -9,7 +9,11 @@ public class Main {
 		
 		mainArrayCreator();
 		
-		addToMainArray(mainArrayCreator());
+		try {
+			addToMainArray(mainArrayCreator());
+		} catch (Exception e) {
+			 System.out.println("YOU DID SOMETHING WRONG: " + e.getMessage() + " " + e);
+		}
 		
 	}
 
@@ -26,7 +30,8 @@ public class Main {
 		return mainArray;
 	}
 	
-	public static void addToMainArray(int[] mainArray) {
+	
+	public static void addToMainArray(int[] mainArray) throws Exception {
 
         Scanner input = new Scanner(System.in);
         boolean quitProgram = false;
@@ -37,23 +42,29 @@ public class Main {
             System.out.println("Choose a number between 1 and 10 (choose 0 to quit program): ");
             addedNumber = input.nextInt(); 
             
-            if(addedNumber == 0) {
-                quitProgram = true;
+        
+            	 if(addedNumber == 0) {
+            		 quitProgram = true;
                 
-            } else {
-                System.out.println("Choose in which position you would like to add it to (pick between 1 and 5): ");
-                int position = input.nextInt();
+            	 } else if(addedNumber >= 1 && addedNumber <= 10){
+            		 System.out.println("Choose in which position you would like to add it to (pick between 1 and 5): ");
+            		 int position = input.nextInt();
 
-                try {
-                	mainArray[position - 1] = addedNumber;
-                	System.out.println(Arrays.toString(mainArray));
+            		 try {
+            			 mainArray[position - 1] = addedNumber;
+            			 System.out.println(Arrays.toString(mainArray));
                 
-                } catch (ArrayIndexOutOfBoundsException e){
-                	System.out.println("SOMETHING WENT WRONG HERE: " + e);
-                	quitProgram = true;
-                };
+            		 } catch (ArrayIndexOutOfBoundsException e){
+            			 System.out.println("YOU DID SOMETHING WRONG: " + e);
+            			 quitProgram = true;
+            			 input.close(); 
+            		 };
               
-            }
+            	 } else {
+            		 throw new Exception();
+            	 }
+        
+           
 
         } while (!quitProgram);
 
