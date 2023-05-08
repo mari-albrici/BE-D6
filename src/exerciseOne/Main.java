@@ -23,7 +23,7 @@ public class Main {
 		int[] mainArray = new int[5];
 		
 		for(int i = 0; i <= mainArray.length -1; i++) {
-			int randomNumberGenerator = (int) (Math.random() * 10);
+			int randomNumberGenerator = (int) (Math.random() * 10 + 1);
 			mainArray[i] = randomNumberGenerator;
 		}
 		
